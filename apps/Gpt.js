@@ -40,7 +40,7 @@ export class gpt_use extends plugin {
             gpt({
                 messages: HistoryMsg,
                 prompt: content,
-                model: 'gpt-4-32k-0314',
+                model: 'gpt-4',
                 markdown: false
             }, (err, result) => {
                 if (err) {

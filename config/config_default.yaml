@@ -1,10 +1,8 @@
 default:
   gpt:
     model: gpt-3.5-turbo
-    markdown: false
   bing:
     conversation_style: Balanced
-    markdown: false
   prodia_v1:
     model: 'cuteyukimixAdorable_midchapter3.safetensors [04bdffe6]'
     steps: 30
