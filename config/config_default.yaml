@@ -1,0 +1,47 @@
+default:
+  gpt:
+    model: gpt-3.5-turbo
+    markdown: false
+  bing:
+    conversation_style: Balanced
+    markdown: false
+  prodia_v1:
+    model: 'cuteyukimixAdorable_midchapter3.safetensors [04bdffe6]'
+    steps: 30
+    cfg_scale: 7
+    sampler: DPM++ 2M Karras
+    negative_prompt: Negative
+  prodia_sd:
+    model: 'cuteyukimixAdorable_midchapter3.safetensors [04bdffe6]'
+    width: 512
+    height: 768
+    sampling_steps: 30
+    cfg_scale: 7
+    sampling_method: DPM++ 2M Karras
+    negative_prompt: Negative
+  prodia_xl:
+    model: 'sd_xl_base_1.0.safetensors [be9edd61]'
+    width: 512
+    height: 768
+    sampling_steps: 30
+    cfg_scale: 7
+    sampling_method: DPM++ 2M Karras
+    negative_prompt: Negative
+  pixart_a:
+    width: 512
+    height: 768
+    cfg_scale: 7
+    dpm_guidance_scale: 4.5
+    dpm_inference_steps: 14
+    sa_guidance_scale: 3
+    sa_inference_steps: 25
+    sampler: DPM-Solver
+    image_style: Anime
+    prompt_negative: Negative
+  pixart_lcm:
+    width: 512
+    height: 768
+    lcm_inference_steps: 9
+    sampler: DPM-Solver
+    image_style: Fantasy art
+    prompt_negative: Negative
