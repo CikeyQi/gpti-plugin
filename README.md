@@ -42,6 +42,11 @@ pnpm install --filter=gpti-plugin
 | 10   | #pia<提示词>   | 使用 Pixart A 生成图片                |
 | 11   | #pilcm<提示词> | 使用 Pixart LCM 生成图片              |
 
+# TODO
+
+- [ ] 单用户设置
+- [ ] 默认用户设置
+
 # 声明
 
 此项目仅用于学习交流，请勿用于非法用途
