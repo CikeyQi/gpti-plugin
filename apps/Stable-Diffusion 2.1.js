@@ -1,21 +1,21 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import Log from '../utils/logs.js'
-import { prodia } from 'gpti'
+import { stablediffusion } from 'gpti'
 
-export class prodia_v1_use extends plugin {
+export class stablediffusion_v1_use extends plugin {
     constructor() {
         super({
             /** 功能名称 */
-            name: 'prodia_v1',
+            name: 'stablediffusion_v1',
             /** 功能描述 */
-            dsc: 'prodia_v1',
+            dsc: 'stablediffusion_v1',
             event: 'message',
             /** 优先级，数字越小等级越高 */
             priority: 1009,
             rule: [
                 {
                     /** 命令正则匹配 */
-                    reg: '^#pp([\\s\\S]*)$',
+                    reg: '^#sd2([\\s\\S]*)$',
                     /** 执行方法 */
                     fnc: 'processContent'
                 }
@@ -25,19 +25,16 @@ export class prodia_v1_use extends plugin {
 
     async processContent(e) {
         let inputMessage = e.msg;
-        let content = inputMessage.replace(/^#pp/, '').trim()
+        let content = inputMessage.replace(/^#sd2/, '').trim()
 
         if (content) {
             let config = await Config.getConfig();
-            await e.reply('正在使用 Prodia 生成图片，请稍后...', true)
-            prodia.v1({
+            await e.reply('正在使用 Stable-Diffusion 2.1 生成图片，请稍后...', true)
+            stablediffusion.v2({
                 prompt: content,
                 data: {
-                    model: config.prodia_v1.model,
-                    steps: config.prodia_v1.steps,
-                    cfg_scale: config.prodia_v1.cfg_scale,
-                    sampler: config.prodia_v1.sampler,
-                    negative_prompt: config.prodia_v1.negative_prompt,
+                    prompt_negative: config.stablediffusion_v2.prompt_negative,
+                    guidance_scale: config.stablediffusion_v2.guidance_scale,
                 }
             }, (error, result) => {
 
@@ -49,7 +46,7 @@ export class prodia_v1_use extends plugin {
                     if (result.code === 200) {
                         let message = []
                         result.images.forEach(element => {
-                            message.push({message: segment.image('base64://' + element.replace('data:image/jpeg;base64,', ''))})
+                            message.push({ message: segment.image('base64://' + element.replace('data:image/jpeg;base64,', '')) })
                         })
                         e.reply(Bot.makeForwardMsg(message))
                         return true;
@@ -61,7 +58,7 @@ export class prodia_v1_use extends plugin {
                 }
             });
         } else {
-            await e.reply('请输入 Prodia 生成图片的描述', true);
+            await e.reply('请输入 Stable-Diffusion 2.1 生成图片的描述', true);
             return true;
         }
     }

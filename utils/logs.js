@@ -15,7 +15,7 @@ try {
  */
 class Log {
   constructor () {
-    this.header = `【gpti-Plugin v${currentVersion}】`
+    this.header = `【GPTI-Plugin v${currentVersion}】`
   }
 
   /** 快捷执行logger.info( )  */

@@ -2,20 +2,20 @@ import plugin from '../../../lib/plugins/plugin.js'
 import Log from '../utils/logs.js'
 import { prodia } from 'gpti'
 
-export class prodia_v1_use extends plugin {
+export class prodia_stablediffusion_use extends plugin {
     constructor() {
         super({
             /** 功能名称 */
-            name: 'prodia_v1',
+            name: 'prodia_stablediffusion',
             /** 功能描述 */
-            dsc: 'prodia_v1',
+            dsc: 'prodia_stablediffusion',
             event: 'message',
             /** 优先级，数字越小等级越高 */
             priority: 1009,
             rule: [
                 {
                     /** 命令正则匹配 */
-                    reg: '^#pp([\\s\\S]*)$',
+                    reg: '^#ps([\\s\\S]*)$',
                     /** 执行方法 */
                     fnc: 'processContent'
                 }
@@ -25,19 +25,21 @@ export class prodia_v1_use extends plugin {
 
     async processContent(e) {
         let inputMessage = e.msg;
-        let content = inputMessage.replace(/^#pp/, '').trim()
+        let content = inputMessage.replace(/^#ps/, '').trim()
 
         if (content) {
             let config = await Config.getConfig();
-            await e.reply('正在使用 Prodia 生成图片，请稍后...', true)
-            prodia.v1({
+            await e.reply('正在使用 Prodia Stable-Diffusion 生成图片，请稍后...', true)
+            prodia.stablediffusion({
                 prompt: content,
                 data: {
-                    model: config.prodia_v1.model,
-                    steps: config.prodia_v1.steps,
-                    cfg_scale: config.prodia_v1.cfg_scale,
-                    sampler: config.prodia_v1.sampler,
-                    negative_prompt: config.prodia_v1.negative_prompt,
+                    prompt_negative: config.prodia_stablediffusion.prompt_negative,
+                    model: config.prodia_stablediffusion.model,
+                    sampling_method: config.prodia_stablediffusion.sampling_method,
+                    sampling_steps: config.prodia_stablediffusion.sampling_steps,
+                    width: config.prodia_stablediffusion.width,
+                    height: config.prodia_stablediffusion.height,
+                    cfg_scale: config.prodia_stablediffusion.cfg_scale
                 }
             }, (error, result) => {
 
@@ -61,7 +63,7 @@ export class prodia_v1_use extends plugin {
                 }
             });
         } else {
-            await e.reply('请输入 Prodia 生成图片的描述', true);
+            await e.reply('请输入 Prodia Stable-Diffusion 生成图片的描述', true);
             return true;
         }
     }

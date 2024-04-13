@@ -4,6 +4,7 @@ import fs from 'fs'
 import Log from '../utils/logs.js'
 import { pluginRoot } from '../model/path.js'
 import Version from '../components/Version.js'
+import Init from '../model/init.js'
 
 
 export class Help extends plugin {

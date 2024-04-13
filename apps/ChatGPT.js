@@ -1,25 +1,25 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import Config from '../components/Config.js'
 import Log from '../utils/logs.js'
-import { bing } from 'gpti'
+import { gpt } from 'gpti'
 
 // 存储每个用户的对话
 const messagesSave = [];
 
-export class bing_use extends plugin {
+export class gpt_use extends plugin {
     constructor() {
         super({
             /** 功能名称 */
-            name: 'bing',
+            name: 'gpt',
             /** 功能描述 */
-            dsc: 'bing',
+            dsc: 'gpt',
             event: 'message',
             /** 优先级，数字越小等级越高 */
             priority: 1009,
             rule: [
                 {
                     /** 命令正则匹配 */
-                    reg: '^#bb([\\s\\S]*)$',
+                    reg: '^#gg([\\s\\S]*)$',
                     /** 执行方法 */
                     fnc: 'processContent'
                 }
@@ -30,7 +30,7 @@ export class bing_use extends plugin {
     async processContent(e) {
         let inputMessage = e.msg;
         let currentUser = e.user_id;
-        let content = inputMessage.replace(/^#bb/, '').trim();
+        let content = inputMessage.replace(/^#gg/, '').trim();
 
         if (content === '清空对话') {
             await this.clearContent(e);
@@ -40,12 +40,11 @@ export class bing_use extends plugin {
         if (content) {
             let config = await Config.getConfig();
             let historicalMessages = messagesSave[currentUser] || [];
-            historicalMessages.push({ role: 'user', content: content });
-            bing({
+            gpt({
                 messages: historicalMessages,
-                conversation_style: config.bing.style,
-                markdown: config.bing.markdown,
-                stream: false,
+                prompt: content,
+                model: config.gpt.model,
+                markdown: config.gpt.markdown,
             }, (error, result) => {
 
                 if (error) {
@@ -54,10 +53,10 @@ export class bing_use extends plugin {
                     return true;
                 } else {
                     if (result.code === 200) {
-                        let responseMessage = result.message;
+                        let responseMessage = result.gpt;
                         if (responseMessage) {
                             e.reply(responseMessage, true);
-                            messagesSave[currentUser] = [...historicalMessages, { role: 'assistant', content: responseMessage }];
+                            messagesSave[currentUser] = [...historicalMessages, { role: 'user', content: content }, { role: 'assistant', content: responseMessage }];
                             return true;
                         }
                     } else {
@@ -68,7 +67,7 @@ export class bing_use extends plugin {
                 }
             });
         } else {
-            await e.reply('请输入与 Bing 对话的内容', true);
+            await e.reply('请输入与 ChatGPT 对话的内容', true);
             return true;
         }
     }

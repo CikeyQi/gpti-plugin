@@ -1,25 +1,25 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import Config from '../components/Config.js'
 import Log from '../utils/logs.js'
-import { bing } from 'gpti'
+import { llama2 } from 'gpti'
 
 // 存储每个用户的对话
 const messagesSave = [];
 
-export class bing_use extends plugin {
+export class llama2_use extends plugin {
     constructor() {
         super({
             /** 功能名称 */
-            name: 'bing',
+            name: 'llama2',
             /** 功能描述 */
-            dsc: 'bing',
+            dsc: 'llama2',
             event: 'message',
             /** 优先级，数字越小等级越高 */
             priority: 1009,
             rule: [
                 {
                     /** 命令正则匹配 */
-                    reg: '^#bb([\\s\\S]*)$',
+                    reg: '^#ll([\\s\\S]*)$',
                     /** 执行方法 */
                     fnc: 'processContent'
                 }
@@ -30,7 +30,7 @@ export class bing_use extends plugin {
     async processContent(e) {
         let inputMessage = e.msg;
         let currentUser = e.user_id;
-        let content = inputMessage.replace(/^#bb/, '').trim();
+        let content = inputMessage.replace(/^#ll/, '').trim();
 
         if (content === '清空对话') {
             await this.clearContent(e);
@@ -41,10 +41,13 @@ export class bing_use extends plugin {
             let config = await Config.getConfig();
             let historicalMessages = messagesSave[currentUser] || [];
             historicalMessages.push({ role: 'user', content: content });
-            bing({
-                messages: historicalMessages,
-                conversation_style: config.bing.style,
-                markdown: config.bing.markdown,
+            llama2({
+                system_message: config.llama2.system,
+                temperature: config.llama2.temperature,
+                max_tokens: config.llama2.max_tokens,
+                top_p: config.llama2.top_p,
+                repetition_penalty: config.llama2.repetition_penalty,
+                markdown: config.llama2.markdown,
                 stream: false,
             }, (error, result) => {
 
@@ -68,7 +71,7 @@ export class bing_use extends plugin {
                 }
             });
         } else {
-            await e.reply('请输入与 Bing 对话的内容', true);
+            await e.reply('请输入与 LLaMA-2 对话的内容', true);
             return true;
         }
     }
