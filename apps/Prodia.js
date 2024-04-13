@@ -1,4 +1,5 @@
 import plugin from '../../../lib/plugins/plugin.js'
+import Config from '../components/Config.js'
 import Log from '../utils/logs.js'
 import { prodia } from 'gpti'
 
