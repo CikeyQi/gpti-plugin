@@ -46,183 +46,78 @@ export class Help extends plugin {
           {
             icon: 1,
             title: '#gg<内容>',
-            desc: '与 GPT 进行连续对话'
+            desc: '与 ChatGPT 进行连续对话'
           },
           {
             icon: 2,
             title: '#gg清空对话',
-            desc: '清空与 GPT 的聊天记录'
+            desc: '清空与 ChatGPT 的聊天记录'
           },
           {
             icon: 3,
-            title: '#bb<内容>',
-            desc: '与 Bing 进行连续对话 '
+            title: '#gw<内容>',
+            desc: '与 ChatGPT网页版 进行对话'
           },
           {
             icon: 4,
-            title: '#bb<清空对话>',
-            desc: '清空与 Bing 的聊天记录'
+            title: '#bb<内容>',
+            desc: '与 New Bing 进行连续对话'
           },
           {
             icon: 5,
-            title: '#dd<提示词>',
-            desc: '使用 DALL-E 生成图片'
+            title: '#bb清空对话',
+            desc: '清空与 New Bing 的聊天记录'
           },
           {
             icon: 6,
-            title: '#dm<提示词>',
-            desc: '使用 DALL-E Mini 批量生成图片'
+            title: '#ll<内容>',
+            desc: '与 LLaMA-2 进行连续对话'
           },
           {
             icon: 7,
-            title: '#prv1<提示词>',
-            desc: '使用 Prodia V1 生成图片'
+            title: '#ll清空对话',
+            desc: '清空与 LLaMA-2 的聊天记录'
           },
           {
             icon: 8,
-            title: '#prsd<提示词>',
-            desc: '使用 Prodia SD 生成图片'
+            title: '#dd<内容>',
+            desc: '使用 DALL·E 生成图像'
           },
           {
             icon: 9,
-            title: '#prxl<提示词>',
-            desc: '使用 Prodia XL 生成图片'
+            title: '#dm<内容>',
+            desc: '使用 DALL-E Mini 生成图像'
           },
           {
             icon: 10,
-            title: '#pia<提示词>',
-            desc: '使用 Pixart A 生成图片'
+            title: '#pp<内容>',
+            desc: '使用 Prodia 生成图像'
           },
           {
             icon: 11,
-            title: '#pilcm<提示词>',
-            desc: '使用 Pixart LCM 生成图片'
-          }
-        ]
-      },
-      {
-        group: 'GPTI-设置（暂不可用）',
-        list: [
+            title: '#ps<内容>',
+            desc: '使用 Prodia Stable-Diffusion 生成图像'
+          },
           {
             icon: 12,
-            title: '#gpti设置gpt模型<模型名称>',
-            desc: '修改使用的 GPT 模型'
+            title: '#sd1<内容>',
+            desc: '使用 Stable-Diffusion 1.5 生成图像'
           },
           {
             icon: 13,
-            title: '#gpti设置bing风格<风格名称>',
-            desc: '修改使用的 Bing 风格'
+            title: '#sd2<内容>',
+            desc: '使用 Stable-Diffusion 2.1 生成图像'
           },
           {
             icon: 14,
-            title: '#gpti设置v1模型<模型名称>',
-            desc: '修改 Prodia V1 使用的模型'
+            title: '#ee<内容>',
+            desc: '使用 EMI 生成图像'
           },
-          {
-            icon: 15,
-            title: '#gpti设置v1步数<步数>',
-            desc: '修改 Prodia V1 绘制步数'
-          },
-          {
-            icon: 16,
-            title: '#gpti设置v1相关性<值>',
-            desc: '修改 Prodia V1 提示词相关性'
-          },
-          {
-            icon: 17,
-            title: '#gpti设置v1采样<采样器>',
-            desc: '修改 Prodia V1 采样器'
-          },
-          {
-            icon: 18,
-            title: '#gpti设置v1负面<提示词>',
-            desc: '修改 Prodia V1 负面提示词'
-          },
-          {
-            icon: 19,
-            title: '#gpti设置sd模型<模型名称>',
-            desc: '修改 Prodia SD 使用的模型'
-          },
-          {
-            icon: 20,
-            title: '#gpti设置sd宽度<值>',
-            desc: '修改 Prodia SD 画幅宽度'
-          },
-          {
-            icon: 21,
-            title: '#gpti设置sd高度<值>',
-            desc: '修改 Prodia SD 画幅高度'
-          },
-          {
-            icon: 22,
-            title: '#gpti设置sd步数<步数>',
-            desc: '修改 Prodia SD 绘制步数'
-          },
-          {
-            icon: 23,
-            title: '#gpti设置sd相关性<值>',
-            desc: '修改 Prodia SD 提示词相关性'
-          },
-          {
-            icon: 24,
-            title: '#gpti设置sd采样<采样器>',
-            desc: '修改 Prodia SD 采样器'
-          },
-          {
-            icon: 25,
-            title: '#gpti设置sd负面<提示词>',
-            desc: '修改 Prodia SD 负面提示词'
-          },
-          {
-            icon: 26,
-            title: '#gpti设置xl模型<模型名称>',
-            desc: '修改 Prodia XL 使用的模型'
-          },
-          {
-            icon: 27,
-            title: '#gpti设置xl宽度<值>',
-            desc: '修改 Prodia XL 画幅宽度'
-          },
-          {
-            icon: 28,
-            title: '#gpti设置xl高度<值>',
-            desc: '修改 Prodia XL 画幅高度'
-          },
-          {
-            icon: 29,
-            title: '#gpti设置xl步数<步数>',
-            desc: '修改 Prodia XL 绘制步数'
-          },
-          {
-            icon: 30,
-            title: '#gpti设置xl相关性<值>',
-            desc: '修改 Prodia XL 提示词相关性'
-          },
-          {
-            icon: 31,
-            title: '#gpti设置xl采样<采样器>',
-            desc: '修改 Prodia XL 采样器'
-          },
-          {
-            icon: 32,
-            title: '#gpti设置xl负面<提示词>',
-            desc: '修改 Prodia XL 负面提示词'
-          },
-          {
-            icon: 33,
-            title: '#gpti设置pa宽度<值>',
-            desc: '修改 Pixart A 画幅宽度'
-          },
-          {
-            icon: 34,
-            title: '#gpti设置pa高度<值>',
-            desc: '修改 Pixart A 画幅高度'
-          },
-          {
-            icon: 35,
-            title: '#gpti设置pa相关性<值>',
-            desc: '修改 Pixart A 提示词相关性'
-          }
+        ]
+      },
+      {
+        group: 'GPTI-设置（请使用Guoba-Plugin进行操作）',
+        list: [
         ]
       }
     ]
