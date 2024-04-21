@@ -8,7 +8,7 @@
 
 - 使用 [gpti-js](https://github.com/yandricr/gpti-js) 作为依赖调用，**免费**使用所有模型，包括对话模型与绘画模型
 
-- **使用中遇到问题请加QQ群咨询：[707331865](https://qm.qq.com/q/TXTIS9KhO2)**
+- **使用中遇到问题请加 QQ 群咨询：[707331865](https://qm.qq.com/q/TXTIS9KhO2)**
 
 > [!TIP]
 > 那天在 NPM 翻找有没有什么有趣的依赖库，翻到了 [gpti-js](https://github.com/yandricr/gpti-js) 这个项目，发现他们家的模型真多，不用在机器人身上就可惜了，立马整了个插件出来
@@ -22,7 +22,8 @@ git clone https://github.com/CikeyQi/gpti-plugin.git ./plugins/gpti-plugin
 ```
 
 > [!NOTE]
-> 如果你的网络环境较差，无法连接到Github，可以使用 [GitHub Proxy](https://mirror.ghproxy.com/) 提供的文件代理加速下载服务
+> 如果你的网络环境较差，无法连接到 Github，可以使用 [GitHub Proxy](https://mirror.ghproxy.com/) 提供的文件代理加速下载服务
+>
 > ```
 > git clone https://mirror.ghproxy.com/https://github.com/CikeyQi/gpti-plugin.git ./plugins/gpti-plugin
 > ```
@@ -55,8 +56,9 @@ pnpm install --filter=gpti-plugin
 - [x] EMI
 
 ## 常见问题
+
 1. 请求报错？
-   + 可能是 gpti-js 那边寄了，等他们修好就能继续用了
+   - 可能是 gpti-js 那边寄了，等他们修好就能继续用了
 
 ## 支持与贡献
 
@@ -65,7 +67,9 @@ pnpm install --filter=gpti-plugin
 有意见或者建议也欢迎提交 [Issues](https://github.com/CikeyQi/gpti-plugin/issues) 和 [Pull requests](https://github.com/CikeyQi/gpti-plugin/pulls)。
 
 ## 相关项目
-* [gpti-js](https://github.com/yandricr/gpti-js)：This package simplifies your interaction with various GPT models, removing the need for tokens or other methods to access GPT
+
+- [gpti-js](https://github.com/yandricr/gpti-js)：This package simplifies your interaction with various GPT models, removing the need for tokens or other methods to access GPT
 
 ## 许可证
+
 本项目使用 [GNU AGPLv3](https://choosealicense.com/licenses/agpl-3.0/) 作为开源许可证。
