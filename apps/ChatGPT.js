@@ -40,7 +40,7 @@ export class gpt_use extends plugin {
         if (content) {
             let config = await Config.getConfig();
             let historicalMessages = messagesSave[currentUser] || [];
-            gpt({
+            gpt.v1({
                 messages: historicalMessages,
                 prompt: content,
                 model: config.gpt.model,

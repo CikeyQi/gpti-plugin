@@ -1,7 +1,7 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import Config from '../components/Config.js'
 import Log from '../utils/logs.js'
-import { gptweb } from 'gpti'
+import { gpt } from 'gpti'
 
 export class gptweb_use extends plugin {
     constructor() {
@@ -30,7 +30,7 @@ export class gptweb_use extends plugin {
 
         if (content) {
             let config = await Config.getConfig();
-            gptweb({
+            gpt.web({
                 prompt: content,
                 markdown: config.gptweb.markdown,
             }, (error, result) => {
