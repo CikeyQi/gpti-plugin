@@ -7,16 +7,16 @@ export function supportGuoba() {
   return {
     pluginInfo: {
       name: 'gpti-plugin',
-      title: 'gpti-plugin',
+      title: 'GPTI交互插件',
       author: ['@CikeyQi', '@erzaozi'],
       authorLink: ['https://github.com/CikeyQi', 'https://github.com/erzaozi'],
       link: 'https://github.com/CikeyQi/gpti-plugin',
       isV3: true,
       isV2: false,
-      description: '基于Yunzai-Bot的GPT插件，简化了GPT模型的交互，无需令牌来访问GPT',
+      description: '基于 Yunzai 的 GPT 插件，使用 gpti-js 免费接口',
       // 显示图标，此为个性化配置
       // 图标可在 https://icon-sets.iconify.design 这里进行搜索
-      icon: 'mdi:stove',
+      icon: 'cryptocurrency-color:chat',
       // 图标颜色，例：#FF0000 或 rgb(255, 0, 0)
       iconColor: '#d19f56',
       // 如果想要显示成图片，也可以填写图标路径（绝对路径）
