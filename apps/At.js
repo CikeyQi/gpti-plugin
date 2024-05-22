@@ -37,9 +37,11 @@ export class At extends plugin {
             return false;
         }
 
-        if (timer[e.user_id]) return false;
+        if (e.isGroup) {
+            if (timer[e.group_id]) return false;
 
-        timer[e.user_id] = setTimeout(() => { timer[e.user_id] = null; }, group_cd * 1000);
+            timer[e.group_id] = setTimeout(() => { timer[e.group_id] = null; }, group_cd * 1000);
+        }
 
         messagesSave[e.user_id] = messagesSave[e.user_id] || [];
         if (!messagesSave[e.user_id].length) messagesSave[e.user_id].push({ role: 'user', content: prompt });
