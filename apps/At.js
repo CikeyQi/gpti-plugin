@@ -33,7 +33,7 @@ export class At extends plugin {
         const config = await Config.getConfig();
         const { use_type, use_group, use_model, prompt, group_cd } = config.auto;
 
-        if (!use_type || (use_type === 'at' && !e.atBot) || !e.msg || (e.isGroup && !use_group.includes(e.group_id))) {
+        if (!use_type || (use_type === 'at' && !e.atBot) || !e.msg || (e.isGroup && !use_group.map(String).includes(String(e.group_id)))) {
             return false;
         }
 

@@ -41,7 +41,7 @@ export function supportGuoba() {
             options: [
               { label: "关闭自动触发", value: false },
               { label: "使用艾特触发", value: "at" },
-              { label: "发言自动触发", value: false }
+              { label: "发言自动触发", value: true }
             ]
           },
         },
@@ -83,6 +83,16 @@ export function supportGuoba() {
               ],
             },
             valueParser: ((value) => value.split(',') || []),
+          },
+        },
+        {
+          field: "auto.group_cd",
+          label: "群聊触发CD",
+          bottomHelpMessage: "输入触发CD，单位为秒",
+          component: "InputNumber",
+          componentProps: {
+            min: 0,
+            step: 1,
           },
         },
         {
