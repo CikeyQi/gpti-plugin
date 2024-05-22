@@ -65,7 +65,7 @@ export function supportGuoba() {
           component: "Input",
         },
         {
-          field: "auto.enable_group",
+          field: "auto.use_group",
           label: "启用的自动触发群",
           bottomHelpMessage: "输入群号，将在以下群聊启用自动触发",
           component: "GTags",
