@@ -1,3 +1,8 @@
+auto:
+  use_type: false
+  use_model: bing
+  prompt: ''
+  enable_group: []
 gpt: 
   model: gpt-4-32k-0314
   markdown: false

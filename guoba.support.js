@@ -26,6 +26,67 @@ export function supportGuoba() {
       schemas: [
         {
           component: "Divider",
+          label: "自动触发 相关配置",
+          componentProps: {
+            orientation: "left",
+            plain: true,
+          },
+        },
+        {
+          field: "auto.use_type",
+          label: "使用模式",
+          bottomHelpMessage: "选择要使用的自动模式",
+          component: "Select",
+          componentProps: {
+            options: [
+              { label: "关闭自动触发", value: false },
+              { label: "使用艾特触发", value: "at" },
+              { label: "发言自动触发", value: false }
+            ]
+          },
+        },
+        {
+          field: "auto.use_model",
+          label: "使用模型",
+          bottomHelpMessage: "选择要使用的模型",
+          component: "Select",
+          componentProps: {
+            options: [
+              { label: "使用GPT", value: "gpt" },
+              { label: "使用GPT2", value: "gpt2" },
+              { label: "使用Bing", value: "bing" },
+              { label: "使用Llama2", value: "llama2" }
+            ]
+          },
+        },
+        {
+          field: "auto.prompt",
+          label: "自动系统设定",
+          component: "Input",
+        },
+        {
+          field: "auto.enable_group",
+          label: "启用的自动触发群",
+          bottomHelpMessage: "输入群号，将在以下群聊启用自动触发",
+          component: "GTags",
+          componentProps: {
+            placeholder: '请输入群聊ID',
+            allowAdd: true,
+            allowDel: true,
+            showPrompt: true,
+            promptProps: {
+              content: '请填写需要添加的群聊ID',
+              placeholder: '请输入需要添加的群聊ID',
+              okText: '添加',
+              rules: [
+                { required: true, message: '群聊ID不能为空' },
+              ],
+            },
+            valueParser: ((value) => value.split(',') || []),
+          },
+        },
+        {
+          component: "Divider",
           label: "ChatGPT 相关配置",
           componentProps: {
             orientation: "left",
@@ -491,6 +552,7 @@ export function supportGuoba() {
           lodash.set(config, keyPath, value)
         }
         config = lodash.merge({}, Config.getConfig(), config)
+        config.auto.enable_group = data['auto.enable_group']
         Config.setConfig(config)
         return Result.ok({}, '保存成功~')
       },
